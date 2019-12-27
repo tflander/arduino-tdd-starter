@@ -1,7 +1,7 @@
 image: "ubuntu:rolling"
 
 before_script:
-    - apt update -qq && apt install -y build-essential cmake
+    - apt update -qq && apt install -y build-essential cmake git
 
 test:
     stage: build
