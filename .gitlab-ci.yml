@@ -6,4 +6,4 @@ before_script:
 test:
     stage: build
     script:
-        - mkdir build && cd build && cmake .. && make test
+        - mkdir build && cd build && cmake .. && make && make test
