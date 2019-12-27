@@ -11,6 +11,17 @@ On your local workstation, you will need:
 
 * GNU Make
 * A native C++ toolchain
-* pkg-config
-* Google Test
-* CMake (to build Google Test)
+* CMake at least version 3.13
+
+## Building and Running Tests
+
+From the command shell:
+
+    mkdir build
+    cd build
+    cmake ..
+
+To build your code, from the build folder run
+
+    make
+    make test
