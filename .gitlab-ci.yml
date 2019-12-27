@@ -1,0 +1,10 @@
+image: "ubuntu:latest"
+
+before_script:
+    - apt update -qq && apt install pkg-config googletest build-essential
+
+test:
+    stage: build
+    script:
+        - make test
+        - cd test && ./check
