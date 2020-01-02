@@ -1,5 +1,4 @@
 #include <stdbool.h>
-#include <unity_fixture.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
@@ -9,7 +8,7 @@
 #include "rules.h"
 #include "render.h"
 #include "neighbor_counter.h"
-#include "support.h"
+#include "support.hpp"
 
 const int numColsForGridTests = 4;
 const int numRowsForGridTests = 3;

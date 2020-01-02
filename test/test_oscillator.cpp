@@ -4,7 +4,6 @@
 
 using namespace ::testing;
 
-// #include <unity_fixture.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
@@ -23,24 +22,28 @@ const int numRowsForPinwheelTests = 12;
 char gridData[numRowsForPinwheelTests][numColsForPinwheelTests];
 struct Grid gridForPinwheel = (struct Grid){(char*)gridData, numRowsForPinwheelTests, numColsForPinwheelTests};
 
-void myPreDisplay() {
-    printf("\nGame Of Life\n");
-}
+class OscillatorTest : public ::testing::Test {
 
-void myPostDisplay() {
-    printf("^^^^^^^^^^^^^^\n");
-}
+ private:
 
-void myDisplayCell(struct Point point, char mark) {
-    printf("%c", mark);
-}
+    static void myPreDisplay() {
+        printf("\nGame Of Life\n");
+    }
 
-void myEndRow() {
-    printf("|\n");
-}
+    static void myPostDisplay() {
+        printf("^^^^^^^^^^^^^^\n");
+    }
 
-class QueueTest : public ::testing::Test {
+    static void myDisplayCell(struct Point point, char mark) {
+        printf("%c", mark);
+    }
+
+    static void myEndRow() {
+        printf("|\n");
+    }
+
  protected:
+
   void SetUp() override {
     struct displayFunctionPointers fp = {
         .displayCellFunction = myDisplayCell,
@@ -49,6 +52,7 @@ class QueueTest : public ::testing::Test {
         .postDisplayFunction = myPostDisplay
 
     };
+
     overrideDisplay(fp);
 
     wipeGrid(gridForPinwheel);
@@ -98,9 +102,4 @@ TEST(Oscillator, pinwheel)
         display(gridForPinwheel);
     }
 }
-
-// TEST_GROUP_RUNNER(Oscillator)
-// {
-//     RUN_TEST_CASE(Oscillator, pinwheel);
-// }
 
