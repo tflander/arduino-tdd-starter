@@ -1,7 +1,6 @@
 include_directories( ${PROJECT_SOURCE_DIR}/src )
 
 add_executable(${PROJECT_NAME} 
-  testdefault.cpp 
   # test_oscillator.cpp 
   test_grid.cpp
   test_random.cpp
