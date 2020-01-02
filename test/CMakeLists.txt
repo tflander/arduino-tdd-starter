@@ -1,10 +1,9 @@
-# add_executable(${PROJECT_NAME} testdefault.cpp)
 include_directories( ${PROJECT_SOURCE_DIR}/src )
 
 add_executable(${PROJECT_NAME} 
   testdefault.cpp 
-  test_oscillator.cpp 
-  # test_grid.cpp
+  # test_oscillator.cpp 
+  test_grid.cpp
   support.cpp
   ../src/neopixel_adapter.c
   ../src/render.c 
