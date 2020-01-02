@@ -1,21 +1,27 @@
 #include <stdbool.h>
-#include <unity_fixture.h>
+
+#include <gtest/gtest.h>
+
+using namespace ::testing;
+
+// #include <unity_fixture.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include "gameOfLife.h"
-#include "rules.h"
-#include "render.h"
-#include "neighbor_counter.h"
-#include "support.h"
+
+extern "C" {
+    #include "gameOfLife.h"
+    #include "rules.h"
+    #include "render.h"
+    #include "neighbor_counter.h"
+}
+#include "support.hpp"
 
 const int numColsForPinwheelTests = 12;
 const int numRowsForPinwheelTests = 12;
 char gridData[numRowsForPinwheelTests][numColsForPinwheelTests];
 struct Grid gridForPinwheel = (struct Grid){(char*)gridData, numRowsForPinwheelTests, numColsForPinwheelTests};
-
-TEST_GROUP(Oscillator);
 
 void myPreDisplay() {
     printf("\nGame Of Life\n");
@@ -33,8 +39,9 @@ void myEndRow() {
     printf("|\n");
 }
 
-TEST_SETUP(Oscillator) {
-
+class QueueTest : public ::testing::Test {
+ protected:
+  void SetUp() override {
     struct displayFunctionPointers fp = {
         .displayCellFunction = myDisplayCell,
         .preDisplayFunction = myPreDisplay,
@@ -45,9 +52,10 @@ TEST_SETUP(Oscillator) {
     overrideDisplay(fp);
 
     wipeGrid(gridForPinwheel);
-}
-TEST_TEAR_DOWN(Oscillator) {
-}
+
+  }
+
+};
 
 TEST(Oscillator, pinwheel)
 {
@@ -91,8 +99,8 @@ TEST(Oscillator, pinwheel)
     }
 }
 
-TEST_GROUP_RUNNER(Oscillator)
-{
-    RUN_TEST_CASE(Oscillator, pinwheel);
-}
+// TEST_GROUP_RUNNER(Oscillator)
+// {
+//     RUN_TEST_CASE(Oscillator, pinwheel);
+// }
 
