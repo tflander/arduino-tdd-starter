@@ -4,6 +4,7 @@ add_executable(${PROJECT_NAME}
   testdefault.cpp 
   # test_oscillator.cpp 
   test_grid.cpp
+  test_random.cpp
   support.cpp
   ../src/neopixel_adapter.c
   ../src/render.c 
