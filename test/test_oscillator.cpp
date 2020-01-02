@@ -17,15 +17,24 @@ extern "C" {
 }
 #include "support.hpp"
 
-const int numColsForPinwheelTests = 12;
-const int numRowsForPinwheelTests = 12;
-char gridData[numRowsForPinwheelTests][numColsForPinwheelTests];
-struct Grid gridForPinwheel = (struct Grid){(char*)gridData, numRowsForPinwheelTests, numColsForPinwheelTests};
-
 class OscillatorTest : public ::testing::Test {
 
  private:
 
+    const static int numColsForPinwheelTests = 12;
+    const static  int numRowsForPinwheelTests = 12;
+    char gridData[numRowsForPinwheelTests][numColsForPinwheelTests];
+
+ public:
+
+   struct Grid gridForPinwheel;
+
+    OscillatorTest() {
+        gridForPinwheel = (struct Grid){(char*)gridData, numRowsForPinwheelTests, numColsForPinwheelTests};
+    }
+
+ private:
+ 
     static void myPreDisplay() {
         printf("\nGame Of Life\n");
     }
@@ -61,7 +70,7 @@ class OscillatorTest : public ::testing::Test {
 
 };
 
-TEST(Oscillator, pinwheel)
+TEST_F(OscillatorTest, pinwheel)
 {
     setGrid(gridForPinwheel,
         "......XX....",
