@@ -4,13 +4,14 @@ include_directories(
 )
 
 add_executable(${PROJECT_NAME} 
-  # test_oscillator.cpp 
+  test_oscillator.cpp 
   # test_random.cpp
   test_grid.cpp
   test_rules.cpp
   test_neopixel_adapter.cpp
   test_randomSeed.cpp
   test_consoleDisplayAdapter.cpp
+
   support.cpp
   ../src/neopixel_adapter.c
   ../src/render.c 
@@ -18,6 +19,7 @@ add_executable(${PROJECT_NAME}
   ../src/neighbor_counter.c 
   ../src/grid.c
   ../src/gameOfLife.c
+  ../src/consoleDisplayAdapter.cpp
   ../mock/mockArduino.c
 )
 

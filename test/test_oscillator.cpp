@@ -16,6 +16,7 @@ extern "C" {
     #include "neighbor_counter.h"
 }
 #include "support.hpp"
+#include "consoleDisplayAdapter.hpp"
 
 class OscillatorTest : public ::testing::Test {
 
@@ -33,39 +34,13 @@ class OscillatorTest : public ::testing::Test {
         gridForPinwheel = (struct Grid){(char*)gridData, numRowsForPinwheelTests, numColsForPinwheelTests};
     }
 
- private:
- 
-    static void myPreDisplay() {
-        printf("\nGame Of Life\n");
-    }
-
-    static void myPostDisplay() {
-        printf("^^^^^^^^^^^^^^\n");
-    }
-
-    static void myDisplayCell(struct Point point, char mark) {
-        printf("%c", mark);
-    }
-
-    static void myEndRow() {
-        printf("|\n");
-    }
-
  protected:
 
+  ConsoleDisplayAdapter displayAdapter;
+
+
   void SetUp() override {
-    struct displayFunctionPointers fp = {
-        .displayCellFunction = myDisplayCell,
-        .preDisplayFunction = myPreDisplay,
-        .endRowFunction = myEndRow,
-        .postDisplayFunction = myPostDisplay
-
-    };
-
-    overrideDisplay(fp);
-
     wipeGrid(gridForPinwheel);
-
   }
 
 };
@@ -88,7 +63,7 @@ TEST_F(OscillatorTest, pinwheel)
     );
 
     tick(gridForPinwheel);
-    display(gridForPinwheel);
+    displayAdapter.display(gridForPinwheel);
     
     verifyGrid(gridForPinwheel,
         "......XX....",
@@ -108,7 +83,7 @@ TEST_F(OscillatorTest, pinwheel)
     for (int i = 0; i < 10; ++i) {
         sleep(1);
         tick(gridForPinwheel);
-        display(gridForPinwheel);
+        displayAdapter.display(gridForPinwheel);
     }
 }
 
