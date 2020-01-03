@@ -3,8 +3,6 @@
 
 #include "grid.h"
 
-void rowAsString(char* buffer, struct Grid grid, int rowIndex);
-
 struct displayFunctionPointers {
     void (*preDisplayFunction)(void); 
     void (*endRowFunction)(void); 
@@ -13,6 +11,5 @@ struct displayFunctionPointers {
 };
 
 void display(struct Grid grid, struct displayFunctionPointers displayFunctionPointers);
-// void overrideDisplay(struct displayFunctionPointers fp);
 
 #endif

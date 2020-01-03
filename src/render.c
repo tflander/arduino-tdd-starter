@@ -19,15 +19,3 @@ void display(struct Grid grid, struct displayFunctionPointers fp) {
     }
     (*fp.postDisplayFunction)();
 }
-
-// TODO: move to test support
-void rowAsString(char* buffer, struct Grid grid, int rowIndex) {
-    buffer[grid.numCols + 1] = 0;
-    for (int c = 0; c < grid.numCols; ++c) {
-        if(isAlive(grid, (struct Point){c, rowIndex})) {
-            buffer[c] = 'X';
-        } else {
-            buffer[c] = '.';
-        }
-    }
-}

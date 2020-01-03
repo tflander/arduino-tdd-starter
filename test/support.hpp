@@ -1,7 +1,10 @@
 #ifndef _TEST_SUPPORT_H_
 #define _TEST_SUPPORT_H_
 
-#include "grid.h"
+extern "C" {
+    #include "grid.h"
+}
+
 #include <gtest/gtest.h>
 
 void verifyRow(struct Grid grid, int rowIndex, char* expected);
@@ -20,7 +23,11 @@ class BaseGridTest : public ::testing::Test {
             // gridForAdapter = (struct Grid){(char*)gridData, numRowsForAdapterTests, numColsForAdapterTests};
             wipeGrid(gridForAdapter);
         }
+
+        
 };
+
+void rowAsString(char* buffer, struct Grid grid, int rowIndex);
 
 
 #endif

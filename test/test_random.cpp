@@ -12,6 +12,7 @@ extern "C" {
     #include "neighbor_counter.h"
 }
 #include "support.hpp"
+#include "consoleDisplayAdapter.hpp"
 
 class RandomTest : public ::testing::Test {
     protected:
@@ -20,6 +21,7 @@ class RandomTest : public ::testing::Test {
         const static int numRowsForRandomTests = 10;
         char randomGridData[numRowsForRandomTests][numColsForRandomTests];
         struct Grid randomGrid;
+        ConsoleDisplayAdapter displayAdapter;
 
         RandomTest() {
             randomGrid = (struct Grid){(char*)randomGridData, numRowsForRandomTests, numColsForRandomTests};
@@ -29,12 +31,12 @@ class RandomTest : public ::testing::Test {
 
 TEST_F(RandomTest, random)
 {
-    display(randomGrid);
+    displayAdapter.display(randomGrid);
 
     for (int i = 0; i < 10; ++i) {
         sleep(1);
         tick(randomGrid);
-        display(randomGrid);
+        displayAdapter.display(randomGrid);
     }
 }
 

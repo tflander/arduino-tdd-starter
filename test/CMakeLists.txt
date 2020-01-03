@@ -4,7 +4,7 @@ include_directories(
 )
 
 add_executable(${PROJECT_NAME} 
-  test_oscillator.cpp 
+  # test_oscillator.cpp 
   # test_random.cpp
   test_grid.cpp
   test_rules.cpp
