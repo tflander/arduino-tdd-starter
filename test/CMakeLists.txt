@@ -10,6 +10,7 @@ add_executable(${PROJECT_NAME}
   test_rules.cpp
   test_neopixel_adapter.cpp
   test_randomSeed.cpp
+  test_consoleDisplayAdapter.cpp
   support.cpp
   ../src/neopixel_adapter.c
   ../src/render.c 
