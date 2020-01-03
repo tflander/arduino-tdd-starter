@@ -15,9 +15,7 @@ void ConsoleDisplayAdapter::display(struct Grid grid) {
 
     };
 
-    overrideDisplay(fp);
-
-      ::display(grid);
+    ::display(grid, fp);
 }
 
 void ConsoleDisplayAdapter::preDisplay() {
@@ -29,7 +27,10 @@ void ConsoleDisplayAdapter::postDisplay() {
 }
 
 void ConsoleDisplayAdapter::displayCell(struct Point point, char mark) {
-    printf("%c", mark);
+    if (mark == ' ') {
+        mark = '.';
+    }
+    printf("%c ", mark); 
 }
 
 void ConsoleDisplayAdapter::endRow() {

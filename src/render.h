@@ -3,7 +3,6 @@
 
 #include "grid.h"
 
-void display(struct Grid grid);
 void rowAsString(char* buffer, struct Grid grid, int rowIndex);
 
 struct displayFunctionPointers {
@@ -13,6 +12,7 @@ struct displayFunctionPointers {
     void (*displayCellFunction)(struct Point point, char mark);
 };
 
-void overrideDisplay(struct displayFunctionPointers fp);
+void display(struct Grid grid, struct displayFunctionPointers displayFunctionPointers);
+// void overrideDisplay(struct displayFunctionPointers fp);
 
 #endif
