@@ -1,4 +1,7 @@
-include_directories( ${PROJECT_SOURCE_DIR}/src )
+include_directories( 
+    ${PROJECT_SOURCE_DIR}/src 
+    ${PROJECT_SOURCE_DIR}/mock
+)
 
 add_executable(${PROJECT_NAME} 
   # test_oscillator.cpp 
@@ -6,6 +9,7 @@ add_executable(${PROJECT_NAME}
   test_grid.cpp
   test_rules.cpp
   test_neopixel_adapter.cpp
+  test_randomSeed.cpp
   support.cpp
   ../src/neopixel_adapter.c
   ../src/render.c 
@@ -13,6 +17,7 @@ add_executable(${PROJECT_NAME}
   ../src/neighbor_counter.c 
   ../src/grid.c
   ../src/gameOfLife.c
+  ../mock/mockArduino.c
 )
 
 target_link_libraries(${PROJECT_NAME} gtest_main)
