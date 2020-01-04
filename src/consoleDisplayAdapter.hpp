@@ -1,8 +1,10 @@
-extern "C" {
-    #include "grid.h"
-}
+#ifndef _CONSOLE_DISPLAY_ADAPTER_H_
+#define _CONSOLE_DISPLAY_ADAPTER_H_
 
-class ConsoleDisplayAdapter {
+#include "abstractDisplayAdapter.hpp"
+
+class ConsoleDisplayAdapter : AbstractDisplayAdapter {
+
     public:
 
         void display(struct Grid grid);
@@ -15,3 +17,5 @@ class ConsoleDisplayAdapter {
         static void endRow();
 
 };
+
+#endif
