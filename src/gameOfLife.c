@@ -1,5 +1,5 @@
-#include "rules.h"
-#include "neighbor_counter.h"
+#include "gameOfLifeEngine/rules.h"
+#include "gameOfLifeEngine/neighbor_counter.h"
 #include <string.h>
 #include "gameOfLifeEngine/grid.h"
 
