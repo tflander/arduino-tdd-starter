@@ -11,6 +11,7 @@ add_executable(${PROJECT_NAME}
   test_neopixel_adapter.cpp
   test_randomSeed.cpp
   test_consoleDisplayAdapter.cpp
+  test_serpentineNeopixelStripDisplayAdapter.cpp
 
   support.cpp
   ../src/neopixel_adapter.c
@@ -20,6 +21,7 @@ add_executable(${PROJECT_NAME}
   ../src/gameOfLifeEngine/grid.c
   ../src/gameOfLife.c
   ../src/consoleDisplayAdapter.cpp
+  ../src/serpintineNeopixelStripDisplayAdapter.cpp
   ../mock/mockArduino.c
 )
 
