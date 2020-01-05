@@ -2,7 +2,7 @@
 #define _TEST_SUPPORT_H_
 
 extern "C" {
-    #include "grid.h"
+    #include "gameOfLifeEngine/grid.h"
 }
 
 #include <gtest/gtest.h>

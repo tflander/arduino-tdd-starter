@@ -17,7 +17,7 @@ add_executable(${PROJECT_NAME}
   ../src/render.c 
   ../src/rules.c 
   ../src/neighbor_counter.c 
-  ../src/grid.c
+  ../src/gameOfLifeEngine/grid.c
   ../src/gameOfLife.c
   ../src/consoleDisplayAdapter.cpp
   ../mock/mockArduino.c

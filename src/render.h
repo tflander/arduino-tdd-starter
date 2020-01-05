@@ -1,7 +1,7 @@
 #ifndef _RENDER_H_
 #define _RENDER_H_
 
-#include "grid.h"
+#include "gameOfLifeEngine/grid.h"
 
 struct displayFunctionPointers {
     void (*preDisplayFunction)(void); 

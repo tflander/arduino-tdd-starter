@@ -1,11 +1,8 @@
-#include "grid.h"
 #include "rules.h"
 #include "neighbor_counter.h"
-#include "render.h"
 #include <string.h>
-#include <stdlib.h> 
-#include <stdio.h> 
-#include <time.h>
+#include "gameOfLifeEngine/grid.h"
+
 
 void tick(struct Grid grid) {
 
