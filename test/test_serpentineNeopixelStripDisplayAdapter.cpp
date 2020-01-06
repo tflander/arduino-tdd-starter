@@ -29,4 +29,13 @@ TEST_F(SerpintineNeopixelDisplayAdapterTest, display)
     displayAdapter.display(grid);
 
     ASSERT_TRUE(strip.showCalled);
+
+    int writtenPixelCount = 0;
+    for (list<pixel>::iterator it=strip.pixelValues.begin(); it != strip.pixelValues.end(); ++it) {
+        uint32_t pixelColor = it->c;
+        ++writtenPixelCount;
+        ASSERT_EQ(displayAdapter.deadColor, pixelColor);
+    }
+    ASSERT_EQ(grid.numCols * grid.numRows, writtenPixelCount);
+
 }

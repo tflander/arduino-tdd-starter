@@ -9,10 +9,13 @@ class SerpintineNeopixelStripDisplayAdapter : AbstractDisplayAdapter {
     public:
 
         static Adafruit_NeoPixel* strip;
+        static struct Grid* grid;
+        static uint32_t liveColor;
+        static uint32_t deadColor;
 
-        void display(struct Grid grid);
+        void display(struct Grid);
 
-        static void setStrip(Adafruit_NeoPixel* s);
+        static void setStrip(Adafruit_NeoPixel*);
 
     private:
 

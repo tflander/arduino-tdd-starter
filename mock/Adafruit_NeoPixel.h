@@ -18,12 +18,14 @@ class Adafruit_NeoPixel {
 
  public:
 
-  // functions to mock
-  Adafruit_NeoPixel(uint16_t n, uint16_t pin=6,
-    neoPixelType type=NEO_GRB + NEO_KHZ800);
+  // methods to mock
   void show(void);
   void setPixelColor(uint16_t n, uint32_t c);
   void setBrightness(uint8_t);
+
+  // utility methods
+  Adafruit_NeoPixel(uint16_t n, uint16_t pin=6, neoPixelType type=NEO_GRB + NEO_KHZ800);
+  static uint32_t Color(uint8_t r, uint8_t g, uint8_t b);
 
   // for testing
   bool showCalled;

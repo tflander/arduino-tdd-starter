@@ -21,3 +21,7 @@ void Adafruit_NeoPixel::reset() {
     showCalled = false;
     pixelValues.clear();
 }
+
+uint32_t Adafruit_NeoPixel::Color(uint8_t r, uint8_t g, uint8_t b) {
+    return ((uint32_t)r << 16) | ((uint32_t)g <<  8) | b;
+}
