@@ -12,7 +12,7 @@ add_executable(${PROJECT_NAME}
   test_randomSeed.cpp
   test_consoleDisplayAdapter.cpp
   test_serpentineNeopixelStripDisplayAdapter.cpp
-
+  
   support.cpp
   ../src/neopixel_adapter.c
   ../src/render.c 
@@ -22,7 +22,9 @@ add_executable(${PROJECT_NAME}
   ../src/gameOfLife.c
   ../src/consoleDisplayAdapter.cpp
   ../src/serpintineNeopixelStripDisplayAdapter.cpp
+
   ../mock/mockArduino.c
+  ../mock/Adafruit_NeoPixelMock.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} gtest_main)
