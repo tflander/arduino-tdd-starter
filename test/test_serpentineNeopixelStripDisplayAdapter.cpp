@@ -26,5 +26,8 @@ TEST_F(SerpintineNeopixelDisplayAdapterTest, display)
 {
     SerpintineNeopixelStripDisplayAdapter displayAdapter(strip);
     displayAdapter.display(grid);
-    ASSERT_EQ(0, 0);
+
+    printf("\n[%d]\n", strip.showCalled);
+
+    // ASSERT_TRUE(strip.showCalled);
 }
