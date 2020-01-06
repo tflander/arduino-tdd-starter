@@ -24,10 +24,9 @@ class SerpintineNeopixelDisplayAdapterTest : public ::testing::Test {
 
 TEST_F(SerpintineNeopixelDisplayAdapterTest, display)
 {
-    SerpintineNeopixelStripDisplayAdapter displayAdapter(strip);
+    SerpintineNeopixelStripDisplayAdapter displayAdapter;
+    SerpintineNeopixelStripDisplayAdapter::setStrip(&strip);
     displayAdapter.display(grid);
 
-    printf("\n[%d]\n", strip.showCalled);
-
-    // ASSERT_TRUE(strip.showCalled);
+    ASSERT_TRUE(strip.showCalled);
 }
