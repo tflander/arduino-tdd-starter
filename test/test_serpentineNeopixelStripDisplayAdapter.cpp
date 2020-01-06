@@ -22,6 +22,8 @@ class SerpintineNeopixelDisplayAdapterTest : public ::testing::Test {
         }
 };
 
+int countPixelsAndVerifyAllDead(SerpintineNeopixelStripDisplayAdapter& displayAdapter, Adafruit_NeoPixel& strip);
+
 TEST_F(SerpintineNeopixelDisplayAdapterTest, display)
 {
     SerpintineNeopixelStripDisplayAdapter displayAdapter;
@@ -29,13 +31,22 @@ TEST_F(SerpintineNeopixelDisplayAdapterTest, display)
     displayAdapter.display(grid);
 
     ASSERT_TRUE(strip.showCalled);
+    int writtenPixelCount = countPixelsAndVerifyAllDead(displayAdapter, strip);
+    ASSERT_EQ(grid.numCols * grid.numRows, writtenPixelCount);
 
+}
+
+void ASSERT_PIXEL_COLOR(uint32_t expectedColor, uint32_t actualColor) {
+    ASSERT_EQ(expectedColor, actualColor);
+}
+
+int countPixelsAndVerifyAllDead(SerpintineNeopixelStripDisplayAdapter& displayAdapter, Adafruit_NeoPixel& strip) {
+    uint32_t deadColor = displayAdapter.deadColor; 
     int writtenPixelCount = 0;
     for (list<pixel>::iterator it=strip.pixelValues.begin(); it != strip.pixelValues.end(); ++it) {
         uint32_t pixelColor = it->c;
         ++writtenPixelCount;
-        ASSERT_EQ(displayAdapter.deadColor, pixelColor);
+        ASSERT_PIXEL_COLOR(deadColor, pixelColor);
     }
-    ASSERT_EQ(grid.numCols * grid.numRows, writtenPixelCount);
-
+    return writtenPixelCount;
 }
