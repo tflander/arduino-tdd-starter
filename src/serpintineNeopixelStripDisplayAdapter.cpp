@@ -1,5 +1,8 @@
 #include "serpintineNeopixelStripDisplayAdapter.hpp"
-#include "Adafruit_NeoPixel.h"
+
+SerpintineNeopixelStripDisplayAdapter::SerpintineNeopixelStripDisplayAdapter(Adafruit_NeoPixel strip) {
+
+}
 
 void SerpintineNeopixelStripDisplayAdapter::display(struct Grid grid) {
 

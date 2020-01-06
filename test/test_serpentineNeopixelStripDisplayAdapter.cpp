@@ -9,20 +9,22 @@ class SerpintineNeopixelDisplayAdapterTest : public ::testing::Test {
 
     protected:
 
-        const static int numColsForGridTests = 4;
-        const static int numRowsForGridTests = 3;
-        char gridData[numRowsForGridTests][numColsForGridTests];
+        const static int LED_PIN = 6;
+        const static int numCols = 4;
+        const static int numRows = 3;
+        char gridData[numRows][numCols];
         struct Grid grid;
+        Adafruit_NeoPixel strip = Adafruit_NeoPixel(numRows * numCols, LED_PIN, NEO_GRB + NEO_KHZ800);
 
         SerpintineNeopixelDisplayAdapterTest() {
-            grid = (struct Grid){(char*)gridData, numRowsForGridTests, numColsForGridTests};
+            grid = (struct Grid){(char*)gridData, numRows, numCols};
             wipeGrid(grid);
         }
 };
 
 TEST_F(SerpintineNeopixelDisplayAdapterTest, display)
 {
-    SerpintineNeopixelStripDisplayAdapter displayAdapter;
+    SerpintineNeopixelStripDisplayAdapter displayAdapter(strip);
     displayAdapter.display(grid);
     ASSERT_EQ(0, 0);
 }
