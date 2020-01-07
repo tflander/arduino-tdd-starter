@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 extern "C" {
-    #include "gameOfLifeEngine/rules.h"
+    #include "rules.h"
 }
 
 

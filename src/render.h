@@ -1,7 +1,7 @@
 #ifndef _RENDER_H_
 #define _RENDER_H_
 
-#include "gameOfLifeEngine/grid.h"
+#include "grid.h"
 
 typedef void (voidFn)(void);
 typedef void (displayCellFn)(struct Point point, char mark);

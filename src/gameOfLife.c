@@ -1,7 +1,7 @@
-#include "gameOfLifeEngine/rules.h"
-#include "gameOfLifeEngine/neighbor_counter.h"
+#include "rules.h"
+#include "neighbor_counter.h"
 #include <string.h>
-#include "gameOfLifeEngine/grid.h"
+#include "grid.h"
 
 
 void tick(struct Grid grid) {

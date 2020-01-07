@@ -8,9 +8,9 @@
 extern "C" {
     #include "render.h"
     #include "gameOfLife.h"
-    #include "gameOfLifeEngine/rules.h"
+    #include "rules.h"
     #include "render.h"
-    #include "gameOfLifeEngine/neighbor_counter.h"
+    #include "neighbor_counter.h"
 }
 #include "support.hpp"
 

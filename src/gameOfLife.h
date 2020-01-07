@@ -1,7 +1,7 @@
 #ifndef _GAME_OF_LIFE_H_
 #define _GAME_OF_LIFE_H_
 
-#include "gameOfLifeEngine/grid.h"
+#include "grid.h"
 
 void tick(struct Grid grid);
 

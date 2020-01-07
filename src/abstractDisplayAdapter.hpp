@@ -2,7 +2,7 @@
 #define _ABSTRACT_DISPLAY_ADAPTER_H_
 
 extern "C" {
-    #include "gameOfLifeEngine/grid.h"
+    #include "grid.h"
 }
 
 class AbstractDisplayAdapter {

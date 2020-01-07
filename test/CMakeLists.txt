@@ -16,9 +16,9 @@ add_executable(${PROJECT_NAME}
   support.cpp
   ../src/neopixel_adapter.c
   ../src/render.c 
-  ../src/gameOfLifeEngine/rules.c 
-  ../src/gameOfLifeEngine/neighbor_counter.c 
-  ../src/gameOfLifeEngine/grid.c
+  ../src/rules.c 
+  ../src/neighbor_counter.c 
+  ../src/grid.c
   ../src/gameOfLife.c
   ../src/consoleDisplayAdapter.cpp
   ../src/serpintineNeopixelStripDisplayAdapter.cpp
