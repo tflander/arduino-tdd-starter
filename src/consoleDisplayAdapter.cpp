@@ -7,13 +7,19 @@ extern "C" {
 
 void ConsoleDisplayAdapter::display(struct Grid grid) {
 
-      struct displayFunctionPointers fp = {
-        .displayCellFunction = displayCell,
-        .preDisplayFunction = preDisplay,
-        .endRowFunction = endRow,
-        .postDisplayFunction = postDisplay
+    //   struct displayFunctionPointers fp = {
+    //     .displayCellFunction = displayCell,
+    //     .preDisplayFunction = preDisplay,
+    //     .endRowFunction = endRow,
+    //     .postDisplayFunction = postDisplay
 
-    };
+    // };
+
+    struct displayFunctionPointers fp;
+    fp.displayCellFunction = displayCell;
+    fp.preDisplayFunction = preDisplay;
+    fp.endRowFunction = endRow;
+    fp.postDisplayFunction = postDisplay;
 
     ::display(grid, fp);
 }

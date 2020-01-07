@@ -15,13 +15,12 @@ void SerpintineNeopixelStripDisplayAdapter::setStrip(Adafruit_NeoPixel* s) {
 }
 
 void SerpintineNeopixelStripDisplayAdapter::display(struct Grid g) {
-    struct displayFunctionPointers fp = {
-        .displayCellFunction = displayCell,
-        .preDisplayFunction = preDisplay,
-        .endRowFunction = endRow,
-        .postDisplayFunction = postDisplay
+    struct displayFunctionPointers fp;
+    fp.displayCellFunction = displayCell;
+    fp.preDisplayFunction = preDisplay;
+    fp.endRowFunction = endRow;
+    fp.postDisplayFunction = postDisplay;
 
-    };
     SerpintineNeopixelStripDisplayAdapter::grid = &g;
     ::display(*SerpintineNeopixelStripDisplayAdapter::grid, fp);
 
