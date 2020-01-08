@@ -41,3 +41,11 @@ void rowAsString(char* buffer, struct Grid grid, int rowIndex) {
         }
     }
 }
+
+
+BaseGridTest::BaseGridTest(int numRows, int numCols) {
+
+    char* gridData = new char[numRows * numCols];
+    grid = (struct Grid){(char*)gridData, numRows, numCols};
+    wipeGrid(grid);
+}

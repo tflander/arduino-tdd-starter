@@ -14,19 +14,13 @@ extern "C" {
 }
 #include "support.hpp"
 
-class GridTest : public ::testing::Test {
+class GridTest : public BaseGridTest {
 
     protected:
 
-        const static int numColsForGridTests = 4;
-        const static int numRowsForGridTests = 3;
-        char gridData[numRowsForGridTests][numColsForGridTests];
-        struct Grid grid;
-
-        GridTest() {
-            grid = (struct Grid){(char*)gridData, numRowsForGridTests, numColsForGridTests};
-            wipeGrid(grid);
-        }
+        const static int numRows = 3;
+        const static int numCols = 4;
+        GridTest() : BaseGridTest(numRows, numCols) {}
 };
 
 TEST_F(GridTest, create_empty_grid) {
