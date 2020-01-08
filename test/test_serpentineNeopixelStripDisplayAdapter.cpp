@@ -17,22 +17,6 @@ class SerpintineNeopixelDisplayAdapterTest : public BaseGridTest {
         Adafruit_NeoPixel strip = Adafruit_NeoPixel(numRows * numCols, LED_PIN, NEO_GRB + NEO_KHZ800);
 };
 
-// class SerpintineNeopixelDisplayAdapterTest : public ::testing::Test {
-
-//     protected:
-
-//         const static int numCols = 4;
-//         const static int numRows = 3;
-//         char gridData[numRows][numCols];
-//         struct Grid grid;
-//         Adafruit_NeoPixel strip = Adafruit_NeoPixel(numRows * numCols, LED_PIN, NEO_GRB + NEO_KHZ800);
-
-//         SerpintineNeopixelDisplayAdapterTest() {
-//             grid = (struct Grid){(char*)gridData, numRows, numCols};
-//             wipeGrid(grid);
-//         }
-// };
-
 int countPixelsAndVerifyAllDead(SerpintineNeopixelStripDisplayAdapter& displayAdapter, Adafruit_NeoPixel& strip);
 
 TEST_F(SerpintineNeopixelDisplayAdapterTest, display)
