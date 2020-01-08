@@ -18,36 +18,21 @@ extern "C" {
 #include "support.hpp"
 #include "consoleDisplayAdapter.hpp"
 
-class OscillatorTest : public ::testing::Test {
+class OscillatorTest : public BaseGridTest {
 
- private:
+    protected:
 
-    const static int numColsForPinwheelTests = 12;
-    const static  int numRowsForPinwheelTests = 12;
-    char gridData[numRowsForPinwheelTests][numColsForPinwheelTests];
+        const static int numRows = 12;
+        const static int numCols = 12;
+        OscillatorTest() : BaseGridTest(numRows, numCols) {}
 
- public:
-
-   struct Grid gridForPinwheel;
-
-    OscillatorTest() {
-        gridForPinwheel = (struct Grid){(char*)gridData, numRowsForPinwheelTests, numColsForPinwheelTests};
-    }
-
- protected:
-
-  ConsoleDisplayAdapter displayAdapter;
-
-
-  void SetUp() override {
-    wipeGrid(gridForPinwheel);
-  }
-
+        ConsoleDisplayAdapter displayAdapter;
 };
+
 
 TEST_F(OscillatorTest, pinwheel)
 {
-    setGrid(gridForPinwheel,
+    setGrid(grid,
         "......XX....",
         "......XX....",
         "............",
@@ -62,10 +47,10 @@ TEST_F(OscillatorTest, pinwheel)
         "....XX......"
     );
 
-    tick(gridForPinwheel);
-    displayAdapter.display(gridForPinwheel);
+    tick(grid);
+    displayAdapter.display(grid);
     
-    verifyGrid(gridForPinwheel,
+    verifyGrid(grid,
         "......XX....",
         "......XX....",
         "............",
@@ -82,8 +67,8 @@ TEST_F(OscillatorTest, pinwheel)
 
     for (int i = 0; i < 10; ++i) {
         sleep(1);
-        tick(gridForPinwheel);
-        displayAdapter.display(gridForPinwheel);
+        tick(grid);
+        displayAdapter.display(grid);
     }
 }
 

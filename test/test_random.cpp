@@ -14,29 +14,26 @@ extern "C" {
 #include "support.hpp"
 #include "consoleDisplayAdapter.hpp"
 
-class RandomTest : public ::testing::Test {
+class RandomTest : public BaseGridTest {
+
     protected:
 
-        const static int numColsForRandomTests = 23;
-        const static int numRowsForRandomTests = 10;
-        char randomGridData[numRowsForRandomTests][numColsForRandomTests];
-        struct Grid randomGrid;
-        ConsoleDisplayAdapter displayAdapter;
+        const static int numRows = 10;
+        const static int numCols = 23;
+        RandomTest() : BaseGridTest(numRows, numCols) {}
 
-        RandomTest() {
-            randomGrid = (struct Grid){(char*)randomGridData, numRowsForRandomTests, numColsForRandomTests};
-            randomizeGrid(randomGrid, time(0));
-        }
+        ConsoleDisplayAdapter displayAdapter;
 };
 
 TEST_F(RandomTest, random)
 {
-    displayAdapter.display(randomGrid);
+    randomizeGrid(grid, time(0));
+    displayAdapter.display(grid);
 
     for (int i = 0; i < 10; ++i) {
         sleep(1);
-        tick(randomGrid);
-        displayAdapter.display(randomGrid);
+        tick(grid);
+        displayAdapter.display(grid);
     }
 }
 
